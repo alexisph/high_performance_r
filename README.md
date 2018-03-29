@@ -143,6 +143,8 @@ doParallel::stopImplicitCluster()
 | R 3.3.2   | Intel MKL 2017U1 (gcc)                      | 4.222      | 0.265        |
 | R 3.4.3   | Intel MKL 2018 (gcc) + kpti                 | 4.174      | 0.257        |
 | R 3.4.3   | Intel MKL 2018 (gcc) + nopti                | 4.158      | 0.256        |
+| R 3.4.4   | Intel MKL 2018 (icc + tbb + no-openmp)      | 4.963      | 0.306        |
+| R 3.4.4   | Intel MKL 2018 (gcc + tbb)                  | 4.807      | 0.296        |
 
 
 # Setting up Ubuntu/Debian for high-performance R benchmarks
@@ -187,7 +189,7 @@ cd r-with-intel-mkl/R-3.4.3
 source /opt/intel/mkl/bin/mklvars.sh intel64
 export MKL="-L${MKLROOT}/lib/intel64 -Wl,--no-as-needed -lmkl_gf_lp64 -lmkl_gnu_thread -lmkl_core -lgomp -lpthread -lm -ldl"
 export _gcc_opt=" -O3 -m64 -fopenmp -march=native"
-export MAIN_LDFLAGS=" -fopenmp"
+export LDFLAGS=" -fopenmp"
 export CFLAGS="${_gcc_opt} -I${MKLROOT}/include"
 export CXXFLAGS="${_gcc_opt} -I${MKLROOT}/include"
 export FFLAGS="${_gcc_opt} -I${MKLROOT}/include"
