@@ -85,7 +85,7 @@ doParallel::stopImplicitCluster()
 | R 3.4.3   | OpenBLAS 8c  | 6.335      | 0.353        |
 | R 3.4.3   | OpenBLAS 12c | 12.599     | 0.589        |
 | R 3.4.3   | Intel MKL    | 10.499     | 0.560        |
-| R 3.5.1   | OpenBLAS     | 6.222      | 0.349        |
+| MRO 3.5.1 | Intel MKL    | 6.222      | 0.349        |
 
 
 ### Laptop DV6 - i5-2450M - 2 cores (HT)
@@ -147,7 +147,7 @@ doParallel::stopImplicitCluster()
 | R 3.4.4   | Intel MKL 2018 (icc + tbb + no-openmp)      | 4.963      | 0.306        |
 | R 3.4.4   | Intel MKL 2018 (gcc + tbb)                  | 4.807      | 0.296        |
 | R 3.5.0   | Intel MKL 2018 (gcc + tbb)                  | 4.382      | 0.278        |
-| R 3.5.1   | Intel MKL 2018 (gcc + tbb)                  | 4.410      | 0.280        |
+| R 3.5.1   | Intel MKL 2018 (gcc + tbb)                  | 4.401      | 0.279        |
 
 
 # Setting up Ubuntu/Debian for high-performance R benchmarks
@@ -155,7 +155,7 @@ doParallel::stopImplicitCluster()
 Install prerequisities:
 
 ```sh
-sudo apt install libcurl4-openssl-dev libxml2-dev libssh2-1-dev libssl-dev git build-essential gfortran
+sudo apt install libcurl4-gnutls-dev libgit2-dev libxml2-dev libssh2-1-dev libssl-dev git build-essential gfortran
 ```
 
 Setup [CRAN R](https://cran.r-project.org/bin/linux/debian/):
@@ -187,7 +187,7 @@ sudo apt-get build-dep r-base
 mkdir -p ~/src/r-with-intel-mkl && cd ~/src/r-with-intel-mkl
 cd ..
 wget https://cran.r-project.org/src/base/R-3/R-3.5.1.tar.gz
-tar zxvf R-3.5.1.tar.gz -C r-with-intel-mkl/
+tar zxf R-3.5.1.tar.gz -C r-with-intel-mkl/
 cd r-with-intel-mkl/R-3.5.1
 source /opt/intel/mkl/bin/mklvars.sh intel64
 export MKL="-L${MKLROOT}/lib/intel64 -Wl,--no-as-needed -lmkl_gf_lp64 -lmkl_gnu_thread -lmkl_core -lgomp -lpthread -lm -ldl"
