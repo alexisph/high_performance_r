@@ -85,6 +85,7 @@ doParallel::stopImplicitCluster()
 | R 3.4.3   | OpenBLAS 8c  | 6.335      | 0.353        |
 | R 3.4.3   | OpenBLAS 12c | 12.599     | 0.589        |
 | R 3.4.3   | Intel MKL    | 10.499     | 0.560        |
+| R 3.5.1   | OpenBLAS     | 6.222      | 0.349        |
 
 
 ### Laptop DV6 - i5-2450M - 2 cores (HT)
@@ -146,6 +147,7 @@ doParallel::stopImplicitCluster()
 | R 3.4.4   | Intel MKL 2018 (icc + tbb + no-openmp)      | 4.963      | 0.306        |
 | R 3.4.4   | Intel MKL 2018 (gcc + tbb)                  | 4.807      | 0.296        |
 | R 3.5.0   | Intel MKL 2018 (gcc + tbb)                  | 4.382      | 0.278        |
+| R 3.5.1   | Intel MKL 2018 (gcc + tbb)                  | 4.410      | 0.280        |
 
 
 # Setting up Ubuntu/Debian for high-performance R benchmarks
@@ -159,8 +161,8 @@ sudo apt install libcurl4-openssl-dev libxml2-dev libssh2-1-dev libssl-dev git b
 Setup [CRAN R](https://cran.r-project.org/bin/linux/debian/):
 
 ```sh
-echo "deb https://ftp.cc.uoc.gr/mirrors/CRAN/bin/linux/ubuntu/ xenial/" | sudo tee /etc/apt/sources.list.d/cran-r.list
-echo "deb-src https://ftp.cc.uoc.gr/mirrors/CRAN/bin/linux/ubuntu/ xenial/" | sudo tee /etc/apt/sources.list.d/cran-r.list
+echo "deb https://ftp.cc.uoc.gr/mirrors/CRAN/bin/linux/ubuntu/ bionic-cran35/" | sudo tee /etc/apt/sources.list.d/cran-r.list
+echo "deb-src https://ftp.cc.uoc.gr/mirrors/CRAN/bin/linux/ubuntu/ bionic-cran35/" | sudo tee /etc/apt/sources.list.d/cran-r.list
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 51716619E084DAB9
 sudo apt update
 sudo apt install r-base r-base-dev
@@ -173,7 +175,7 @@ wget https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-20
 sudo apt-key add GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB
 sudo sh -c 'echo deb https://apt.repos.intel.com/mkl all main > /etc/apt/sources.list.d/intel-mkl.list'
 sudo apt update
-sudo apt install intel-mkl-64bit-2018.1-038
+sudo apt install intel-mkl-64bit-2019.0-045
 ```
 
 [Compile R](https://software.intel.com/en-us/articles/using-intel-mkl-with-r) with the Intel MKL:
@@ -184,9 +186,9 @@ _See [1](https://www.r-bloggers.com/why-is-r-slow-some-explanations-and-mklopenb
 sudo apt-get build-dep r-base
 mkdir -p ~/src/r-with-intel-mkl && cd ~/src/r-with-intel-mkl
 cd ..
-wget https://cran.r-project.org/src/base/R-3/R-3.4.3.tar.gz
-tar zxvf R-3.4.3.tar.gz -C r-with-intel-mkl/
-cd r-with-intel-mkl/R-3.4.3
+wget https://cran.r-project.org/src/base/R-3/R-3.5.1.tar.gz
+tar zxvf R-3.5.1.tar.gz -C r-with-intel-mkl/
+cd r-with-intel-mkl/R-3.5.1
 source /opt/intel/mkl/bin/mklvars.sh intel64
 export MKL="-L${MKLROOT}/lib/intel64 -Wl,--no-as-needed -lmkl_gf_lp64 -lmkl_gnu_thread -lmkl_core -lgomp -lpthread -lm -ldl"
 export _gcc_opt=" -O3 -m64 -fopenmp -march=native"
@@ -195,9 +197,9 @@ export CFLAGS="${_gcc_opt} -I${MKLROOT}/include"
 export CXXFLAGS="${_gcc_opt} -I${MKLROOT}/include"
 export FFLAGS="${_gcc_opt} -I${MKLROOT}/include"
 export FCFLAGS="${_gcc_opt} -I${MKLROOT}/include"
-./configure --prefix=/opt/R/R-3.4.3-intel-mkl --enable-R-shlib --with-blas="$MKL" --with-lapack
+./configure --prefix=/opt/R/R-3.5.1-intel-mkl --enable-R-shlib --with-blas="$MKL" --with-lapack
 make && sudo make install
-printf '\n#export RSTUDIO_WHICH_R=/usr/bin/R\nexport RSTUDIO_WHICH_R=/opt/R/R-3.4.3-intel-mkl/bin/R\n' | tee -a ~/.profile
+printf '\n#export RSTUDIO_WHICH_R=/usr/bin/R\nexport RSTUDIO_WHICH_R=/opt/R/R-3.5.1-intel-mkl/bin/R\n' | tee -a ~/.profile
 ```
 
 Compile R with OpenBLAS:
@@ -205,11 +207,11 @@ Compile R with OpenBLAS:
 ```sh
 mkdir -p ~/src/r-with-openblas && cd ~/src/r-with-openblas
 cd ..
-tar zxvf R-3.4.3.tar.gz -C r-with-openblas/
-cd ~/src/r-with-openblas/R-3.4.3
-./configure --prefix=/opt/R/R-3.4.3-openblas --enable-R-shlib --with-blas --with-lapack
+tar zxvf R-3.5.1.tar.gz -C r-with-openblas/
+cd ~/src/r-with-openblas/R-3.5.1
+./configure --prefix=/opt/R/R-3.5.1-openblas --enable-R-shlib --with-blas --with-lapack
 make && sudo make install
-printf '#export RSTUDIO_WHICH_R=/opt/R/R-3.4.3-openblas/bin/R\n' | tee -a ~/.profile
+printf '#export RSTUDIO_WHICH_R=/opt/R/R-3.5.1-openblas/bin/R\n' | tee -a ~/.profile
 ```
 
 Compile vanilla R:
@@ -217,11 +219,11 @@ Compile vanilla R:
 ```sh
 mkdir -p ~/src/r-vanilla && cd ~/src/r-vanilla
 cd ..
-tar zxvf R-3.4.3.tar.gz -C r-vanilla/
-cd ~/src/r-vanilla/R-3.4.3
-./configure --prefix=/opt/R/R-3.4.3-vanilla --enable-R-shlib
+tar zxvf R-3.5.1.tar.gz -C r-vanilla/
+cd ~/src/r-vanilla/R-3.5.1
+./configure --prefix=/opt/R/R-3.5.1-vanilla --enable-R-shlib
 make && sudo make install
-printf '#export RSTUDIO_WHICH_R=/opt/R/R-3.4.3-vanilla/bin/R\n' | tee -a ~/.profile
+printf '#export RSTUDIO_WHICH_R=/opt/R/R-3.5.1-vanilla/bin/R\n' | tee -a ~/.profile
 ```
 
 Choose linear algebra libs:
@@ -236,20 +238,12 @@ sudo update-alternatives --config liblapack.so.3
 Set R distribution in use by RStudio Server:
 
 ```sh
-echo "rsession-which-r=/opt/R/R-3.4.3-intel-mkl/bin/R" | sudo tee -a /etc/rstudio/rserver.conf
+echo "rsession-which-r=/opt/R/R-3.5.1-intel-mkl/bin/R" | sudo tee -a /etc/rstudio/rserver.conf
 ```
 
 Set number of threads for OpenBLAS:
 
 ```sh
 OPENBLAS_NUM_THREADS=8 R --no-save
-```
-
-Check if [KPTI](https://en.wikipedia.org/wiki/Kernel_page-table_isolation) mitigation is enabled in the kernel:
-
-```sh
-dmesg | grep -i "page table"
-grep pcid /proc/cpuinfo
-grep cpu_insecure /proc/cpuinfo
 ```
 
