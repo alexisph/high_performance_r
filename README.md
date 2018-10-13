@@ -148,6 +148,7 @@ doParallel::stopImplicitCluster()
 | R 3.4.4   | Intel MKL 2018 (gcc + tbb)                  | 4.807      | 0.296        |
 | R 3.5.0   | Intel MKL 2018 (gcc + tbb)                  | 4.382      | 0.278        |
 | R 3.5.1   | Intel MKL 2018 (gcc + tbb)                  | 4.401      | 0.279        |
+| R 3.5.1   | Intel MKL 2018 (gcc + tbb + OC)             | 3.978      | 0.251        |
 
 
 # Setting up Ubuntu/Debian for high-performance R benchmarks
