@@ -151,6 +151,13 @@ doParallel::stopImplicitCluster()
 | R 3.5.1   | Intel MKL 2018 (gcc + tbb + OC)             | 3.978      | 0.251        |
 
 
+### Desktop - Xeon 1270 v2 - 4 cores (HT)
+
+| Version   | Options                                     | Total time | Overall mean |
+| --------- | ------------------------------------------- | ---------- | ------------ |
+| R 3.5.1   | Intel MKL 2018 (gcc + tbb)                  | 4.288      | 0.268        |
+
+
 # Setting up Ubuntu/Debian for high-performance R benchmarks
 
 Install prerequisities:
