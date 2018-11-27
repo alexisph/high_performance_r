@@ -128,6 +128,7 @@ doParallel::stopImplicitCluster()
 | R 3.3.2   | Intel MKL 2017U1 (gcc)          | 4.485      | 0.274        |
 | MRO 3.4.2 | Intel MKL + kpti                | 5.207      | 0.311        |
 | MRO 3.4.2 | Intel MKL + nopti               | 5.160      | 0.306        |
+| MRO 3.5.1 | Intel MKL                       | 4.776      | 0.280        |
 
 
 ### Desktop - i7-2600K - 4 cores (HT)
@@ -158,7 +159,7 @@ doParallel::stopImplicitCluster()
 | R 3.5.1   | Intel MKL 2018 (gcc + tbb)                  | 4.288      | 0.268        |
 
 
-# Setting up Ubuntu/Debian for high-performance R benchmarks
+# Setting up high-performance R on Ubuntu/Debian
 
 Install prerequisities:
 
