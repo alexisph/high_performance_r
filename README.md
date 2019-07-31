@@ -165,6 +165,14 @@ doParallel::stopImplicitCluster()
 | R 3.6.0   | Intel MKL 2019 U3 (gcc)                     | 3.867      | 0.236        |
 
 
+### Desktop - Ryzen 3600 - 6 cores (HT)
+
+| Version | Options  | Total time | Overall mean |
+| ------- | -------- | ---------- | ------------ |
+| R 3.6.1 | vanilla  | 21.999     | 0.548        |
+| R 3.6.1 | OpenBLAS | 3.012      | 0.167        |
+
+
 # Setting up high-performance R on Ubuntu/Debian
 
 Install prerequisities:
