@@ -120,7 +120,7 @@ doParallel::stopImplicitCluster()
 | MRO 3.4.2 | Intel MKL + nopti      | 6.621      | 0.417        |
 
 
-### Laptop - Elitebook 840 G3 - i7-6500U - 2 cores (HT)
+### Laptop - EliteBook 840 G3 - i7-6500U - 2 cores (HT)
 
 | Version   | Options                         | Total time | Overall mean |
 | --------- | ------------------------------- | ---------- | ------------ |
@@ -129,6 +129,13 @@ doParallel::stopImplicitCluster()
 | MRO 3.4.2 | Intel MKL + kpti                | 5.207      | 0.311        |
 | MRO 3.4.2 | Intel MKL + nopti               | 5.160      | 0.306        |
 | MRO 3.5.1 | Intel MKL                       | 4.776      | 0.280        |
+
+
+### Laptop - ProBook 430 G5 - i5-8250U - 4 cores (HT)
+
+| Version | Options  | Total time | Overall mean |
+| ------- | -------- | ---------- | ------------ |
+| R 3.6.1 | OpenBlas | 4.347      | 0.250        |
 
 
 ### Desktop - i7-2600K - 4 cores (HT)
