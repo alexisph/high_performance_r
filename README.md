@@ -178,6 +178,7 @@ doParallel::stopImplicitCluster()
 | ------- | -------- | ---------- | ------------ |
 | R 3.6.1 | vanilla  | 21.999     | 0.548        |
 | R 3.6.1 | OpenBLAS | 3.012      | 0.167        |
+| R 3.6.2 | OpenBLAS | 2.885      | 0.161        |
 
 
 # Setting up high-performance R on Ubuntu/Debian
