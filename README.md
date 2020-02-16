@@ -174,12 +174,13 @@ doParallel::stopImplicitCluster()
 
 ### Desktop - Ryzen 3600 - 6 cores (HT)
 
-| Version | Options          | Total time | Overall mean |
-| ------- | ---------------- | ---------- | ------------ |
-| R 3.6.1 | vanilla          | 21.999     | 0.548        |
-| R 3.6.1 | OpenBLAS         | 3.012      | 0.167        |
-| R 3.6.2 | OpenBLAS         | 2.885      | 0.161        |
-| R 3.6.2 | Intel MKL 2020.0 | 2.720      | 0.156        |
+| Version | Options                                 | Total time | Overall mean |
+| ------- | --------------------------------------- | ---------- | ------------ |
+| R 3.6.1 | vanilla                                 | 21.999     | 0.548        |
+| R 3.6.1 | OpenBLAS                                | 3.012      | 0.167        |
+| R 3.6.2 | OpenBLAS                                | 2.885      | 0.161        |
+| R 3.6.2 | Intel MKL 2020.0                        | 2.720      | 0.156        |
+| R 3.6.2 | Intel MKL 2020.0 + MKL_DEBUG_CPU_TYPE=5 | 2.598      | 0.148        |
 
 
 # Setting up high-performance R on Ubuntu/Debian
