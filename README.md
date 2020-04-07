@@ -181,6 +181,7 @@ doParallel::stopImplicitCluster()
 | R 3.6.2 | OpenBLAS                                | 2.885      | 0.161        |
 | R 3.6.2 | Intel MKL 2020.0                        | 2.673      | 0.151        |
 | R 3.6.2 | Intel MKL 2020.0 + MKL_DEBUG_CPU_TYPE=5 | 2.558      | 0.141        |
+| R 3.6.3 | Intel MKL 2020.1 + MKL_DEBUG_CPU_TYPE=5 | 2.637      | 0.145        |
 
 
 # Setting up high-performance R on Ubuntu/Debian
