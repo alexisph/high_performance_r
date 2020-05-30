@@ -1,8 +1,92 @@
 # High Performance R
 
-_Instructions and benchmarks for high-performance computing in R_
+_Benchmarks and instructions for high-performance computing in R_
 
-## Tests
+
+## Results (R-benchmark-25.R)
+
+| Version   | Options                                   | Hardware         | Cores   | Total time | Overall mean |
+| --------- | ----------------------------------------- | ---------------- | ------- | ---------- | ------------ |
+| R 3.2.2   | vanilla                                   | 2 x Xeon E5-2640 | 12 (HT) | 39.307     | 1.263        |
+| R 3.2.2   | OpenBlas                                  | 2 x Xeon E5-2640 | 12 (HT) | 8.978      | 0.580        |
+| R 3.2.2   | OpenBlas-OpenMP                           | 2 x Xeon E5-2640 | 12 (HT) | 8.881      | 0.433        |
+| R 3.2.2   | OpenBlas-Pthreads                         | 2 x Xeon E5-2640 | 12 (HT) | 7.911      | 0.431        |
+| MRO 3.2.2 | RevoMath                                  | 2 x Xeon E5-2640 | 12 (HT) | 6.723      | 0.384        |
+| R 3.4.3   | Vanilla                                   | 2 x Xeon E5-2670 | 16 (HT) | 35.196     | 1.072        |
+| R 3.4.3   | ATLAS                                     | 2 x Xeon E5-2670 | 16 (HT) | 11.587     | 0.661        |
+| R 3.4.3   | OpenBLAS                                  | 2 x Xeon E5-2670 | 16 (HT) | 35.843     | 0.746        |
+| R 3.4.3   | OpenBLAS 2c                               | 2 x Xeon E5-2670 | 16 (HT) | 9.250      | 0.537        |
+| R 3.4.3   | OpenBLAS 8c                               | 2 x Xeon E5-2670 | 16 (HT) | 6.335      | 0.353        |
+| R 3.4.3   | OpenBLAS 12c                              | 2 x Xeon E5-2670 | 16 (HT) | 12.599     | 0.589        |
+| R 3.4.3   | Intel MKL                                 | 2 x Xeon E5-2670 | 16 (HT) | 10.499     | 0.560        |
+| MRO 3.5.1 | Intel MKL                                 | 2 x Xeon E5-2670 | 16 (HT) | 6.222      | 0.349        |
+| R 3.3.2   | OpenBlas-LAPACK                           | i5-2450M         | 2 (HT)  | 10.371     | 0.480        |
+| MRO 3.3.1 | RevoMath                                  | i5-2450M         | 2 (HT)  | 7.312      | 0.465        |
+| R 3.2.1   | OpenBlas-LAPACK                           | i7-2640M         | 2 (HT)  | 6.844      | 0.438        |
+| R 3.2.2   | Intel MKL 2016U1 (icc)                    | i7-2640M         | 2 (HT)  | 6.209      | 0.397        |
+| MRO 3.2.2 | RevoMath                                  | i7-2640M         | 2 (HT)  | 6.481      | 0.411        |
+| R 3.2.3   | vanilla                                   | i7-2640M         | 2 (HT)  | 34.812     | 1.128        |
+| R 3.2.3   | OpenBlas-LAPACK                           | i7-2640M         | 2 (HT)  | 7.421      | 0.452        |
+| R 3.2.3   | Intel MKL 2016U1 (icc)                    | i7-2640M         | 2 (HT)  | 6.072      | 0.387        |
+| R 3.2.3   | Intel MKL 2016U1 (gcc)                    | i7-2640M         | 2 (HT)  | 6.309      | 0.405        |
+| R 3.2.3   | Intel MKL 2016U2 (icc)                    | i7-2640M         | 2 (HT)  | 5.851      | 0.379        |
+| R 3.2.4   | Intel MKL 2016U2 (gcc)                    | i7-2640M         | 2 (HT)  | 5.816      | 0.383        |
+| R 3.2.4   | Intel MKL 2016U2 (icc)                    | i7-2640M         | 2 (HT)  | 6.550      | 0.413        |
+| R 3.3.0   | Intel MKL 2016U3 (gcc)                    | i7-2640M         | 2 (HT)  | 5.893      | 0.387        |
+| MRO 3.3.1 | RevoMath                                  | i7-2640M         | 2 (HT)  | 6.529      | 0.410        |
+| R 3.3.2   | Intel MKL 2017U1 (icc)                    | i7-2640M         | 2 (HT)  | 6.594      | 0.411        |
+| R 3.3.2   | Intel MKL 2017U1 (icc)                    | i7-2640M         | 2 (HT)  | 6.332      | 0.402        |
+| R 3.3.2   | Intel MKL 2017U1 (icc)                    | i7-2640M         | 2 (HT)  | 6.348      | 0.406        |
+| MRO 3.4.2 | Intel MKL                                 | i7-2640M         | 2 (HT)  | 6.638      | 0.417        |
+| MRO 3.4.2 | Intel MKL + kpti                          | i7-2640M         | 2 (HT)  | 6.516      | 0.413        |
+| MRO 3.4.2 | Intel MKL + nopti                         | i7-2640M         | 2 (HT)  | 6.621      | 0.417        |
+| R 3.3.2   | Intel MKL 2017U1 (icc)                    | i7-6500U         | 2 (HT)  | 4.628      | 0.281        |
+| R 3.3.2   | Intel MKL 2017U1 (gcc)                    | i7-6500U         | 2 (HT)  | 4.485      | 0.274        |
+| MRO 3.4.2 | Intel MKL + kpti                          | i7-6500U         | 2 (HT)  | 5.207      | 0.311        |
+| MRO 3.4.2 | Intel MKL + nopti                         | i7-6500U         | 2 (HT)  | 5.160      | 0.306        |
+| MRO 3.5.1 | Intel MKL                                 | i7-6500U         | 2 (HT)  | 4.776      | 0.280        |
+| R 3.6.1   | OpenBlas                                  | i5-8250U         | 4 (HT)  | 4.347      | 0.250        |
+| R 3.3.1   | Intel MKL 2016U3 (gcc)                    | i7-2600K         | 4 (HT)  | 4.822      | 0.297        |
+| R 3.3.1   | Intel MKL 2017 (icc, no fp)               | i7-2600K         | 4 (HT)  | 4.706      | 0.281        |
+| R 3.3.1   | Intel MKL 2017 (icc, prec-div, prec-sqrt) | i7-2600K         | 4 (HT)  | 4.829      | 0.288        |
+| R 3.3.1   | Intel MKL 2017 (icc, fp precise source)   | i7-2600K         | 4 (HT)  | 4.721      | 0.287        |
+| MRO 3.3.1 | RevoMath                                  | i7-2600K         | 4 (HT)  | 4.974      | 0.294        |
+| R 3.3.2   | Intel MKL 2017 (icc, no parallel flags)   | i7-2600K         | 4 (HT)  | 4.663      | 0.280        |
+| R 3.3.2   | Intel MKL 2017U1 (icc)                    | i7-2600K         | 4 (HT)  | 4.834      | 0.298        |
+| R 3.3.2   | Intel MKL 2017U1 (gcc)                    | i7-2600K         | 4 (HT)  | 4.222      | 0.265        |
+| R 3.4.3   | Intel MKL 2018 (gcc) + kpti               | i7-2600K         | 4 (HT)  | 4.174      | 0.257        |
+| R 3.4.3   | Intel MKL 2018 (gcc) + nopti              | i7-2600K         | 4 (HT)  | 4.158      | 0.256        |
+| R 3.4.4   | Intel MKL 2018 (icc + tbb + no-openmp)    | i7-2600K         | 4 (HT)  | 4.963      | 0.306        |
+| R 3.4.4   | Intel MKL 2018 (gcc + tbb)                | i7-2600K         | 4 (HT)  | 4.807      | 0.296        |
+| R 3.5.0   | Intel MKL 2018 (gcc + tbb)                | i7-2600K         | 4 (HT)  | 4.382      | 0.278        |
+| R 3.5.1   | Intel MKL 2018 (gcc + tbb)                | i7-2600K         | 4 (HT)  | 4.401      | 0.279        |
+| R 3.5.1   | Intel MKL 2018 (gcc + tbb + OC)           | i7-2600K         | 4 (HT)  | 3.978      | 0.251        |
+| R 3.5.1   | Intel MKL 2018 (gcc + tbb)                | Xeon 1270 v2     | 4 (HT)  | 4.288      | 0.268        |
+| R 3.5.1   | Intel MKL 2019 U1 (gcc)                   | Xeon 1270 v2     | 4 (HT)  | 3.903      | 0.240        |
+| R 3.5.2   | Intel MKL 2019 U1 (gcc)                   | Xeon 1270 v2     | 4 (HT)  | 3.890      | 0.239        |
+| MRO 3.5.2 | Intel MKL                                 | Xeon 1270 v2     | 4 (HT)  | 4.241      | 0.263        |
+| R 3.5.3   | Intel MKL 2019 U1 (gcc)                   | Xeon 1270 v2     | 4 (HT)  | 4.006      | 0.247        |
+| R 3.5.3   | Intel MKL 2019 U3 (gcc)                   | Xeon 1270 v2     | 4 (HT)  | 3.954      | 0.244        |
+| R 3.6.0   | Intel MKL 2019 U3 (gcc)                   | Xeon 1270 v2     | 4 (HT)  | 3.867      | 0.236        |
+| R 3.6.1   | vanilla                                   | Ryzen 3600       | 6 (HT)  | 21.999     | 0.548        |
+| R 3.6.1   | OpenBLAS                                  | Ryzen 3600       | 6 (HT)  | 3.012      | 0.167        |
+| R 3.6.2   | OpenBLAS                                  | Ryzen 3600       | 6 (HT)  | 2.885      | 0.161        |
+| R 3.6.2   | Intel MKL 2020.0                          | Ryzen 3600       | 6 (HT)  | 2.673      | 0.151        |
+| R 3.6.2   | Intel MKL 2020.0 + MKL_DEBUG_CPU_TYPE=5   | Ryzen 3600       | 6 (HT)  | 2.558      | 0.141        |
+| R 3.6.3   | Intel MKL 2020.1 + MKL_DEBUG_CPU_TYPE=5   | Ryzen 3600       | 6 (HT)  | 2.637      | 0.145        |
+| R 4.0.0   | Intel MKL 2020.1                          | Ryzen 3600       | 6 (HT)  | 2.592      | 0.141        |
+| R 4.0.0   | Intel MKL 2020.1 + MKL_DEBUG_CPU_TYPE=5   | Ryzen 3600       | 6 (HT)  | 2.590      | 0.140        |
+
+
+## Methodology
+
+Run R benchmarks:
+
+``` {.sh}
+cat R-benchmark-25.R | time R --slave --no-save
+(echo 'library(MASS);set.seed(1)' && cat MASS-ex.R) | time R --slave --no-save
+cat bench.R | time R --slave --no-save
+```
 
 Test OpenMP:
 
@@ -10,14 +94,6 @@ Test OpenMP:
 R CMD SHLIB omp_sample.c
 (echo 'dyn.load("omp_sample.so"); .Call("dumbCumsum",runif(100000),0L)') | time R --slave --no-save
 taskset -p 0xffffffff `pidof R`
-```
-
-Run R benchmarks:
-
-``` {.sh}
-(echo 'library(MASS);set.seed(1)' && cat MASS-ex.R) | time R --slave --no-save
-cat R-benchmark-25.R | time R --slave --no-save
-cat bench.R | time R --slave --no-save
 ```
 
 Matrix multiplication:
@@ -58,130 +134,6 @@ foreach (i = 1:4) %do% {
 }
 doParallel::stopImplicitCluster()
 ```
-
-
-## Results (R-Benchmark-25)
-
-
-### Server - 2 x Xeon E5-2640 - 12 cores (HT)
-
-| Version   | Options             | Total time | Overall mean |
-| --------- | ------------------- | ---------- | ------------ |
-| R 3.2.2   | vanilla             | 39.307     | 1.263        |
-| R 3.2.2   | OpenBlas            | 8.978      | 0.580        |
-| R 3.2.2   | OpenBlas-OpenMP     | 8.881      | 0.433        |
-| R 3.2.2   | OpenBlas-Pthreads   | 7.911      | 0.431        |
-| MRO 3.2.2 | RevoMath            | 6.723      | 0.384        |
-
-
-### Server - 2 x Xeon E5-2670 - 16 cores (HT) - 16 cores in LXC
-
-| Version   | Options      | Total time | Overall mean |
-| --------- | ------------ | ---------- | ------------ |
-| R 3.4.3   | Vanilla      | 35.196     | 1.072        |
-| R 3.4.3   | ATLAS        | 11.587     | 0.661        |
-| R 3.4.3   | OpenBLAS     | 35.843     | 0.746        |
-| R 3.4.3   | OpenBLAS 2c  | 9.250      | 0.537        |
-| R 3.4.3   | OpenBLAS 8c  | 6.335      | 0.353        |
-| R 3.4.3   | OpenBLAS 12c | 12.599     | 0.589        |
-| R 3.4.3   | Intel MKL    | 10.499     | 0.560        |
-| MRO 3.5.1 | Intel MKL    | 6.222      | 0.349        |
-
-
-### Laptop DV6 - i5-2450M - 2 cores (HT)
-
-| Version   | Options           | Total time | Overall mean |
-| ----------| ----------------- | ---------- | ------------ |
-| R 3.3.2   | OpenBlas-LAPACK   | 10.371     | 0.480        |
-| MRO 3.3.1 | RevoMath          | 7.312      | 0.465        |
-
-
-### Laptop T420 - i7-2640M - 2 cores (HT)
-
-| Version   | Options                | Total time | Overall mean |
-| --------- | ---------------------- | ---------- | ------------ |
-| R 3.2.1   | OpenBlas-LAPACK        | 6.844      | 0.438        |
-| R 3.2.2   | Intel MKL 2016U1 (icc) | 6.209      | 0.397        |
-| MRO 3.2.2 | RevoMath               | 6.481      | 0.411        |
-| R 3.2.3   | vanilla                | 34.812     | 1.128        |
-| R 3.2.3   | OpenBlas-LAPACK        | 7.421      | 0.452        |
-| R 3.2.3   | Intel MKL 2016U1 (icc) | 6.072      | 0.387        |
-| R 3.2.3   | Intel MKL 2016U1 (gcc) | 6.309      | 0.405        |
-| R 3.2.3   | Intel MKL 2016U2 (icc) | 5.851      | 0.379        |
-| R 3.2.4   | Intel MKL 2016U2 (gcc) | 5.816      | 0.383        |
-| R 3.2.4   | Intel MKL 2016U2 (icc) | 6.550      | 0.413        |
-| R 3.3.0   | Intel MKL 2016U3 (gcc) | 5.893      | 0.387        |
-| MRO 3.3.1 | RevoMath               | 6.529      | 0.410        |
-| R 3.3.2   | Intel MKL 2017U1 (icc) | 6.594      | 0.411        |
-| R 3.3.2   | Intel MKL 2017U1 (icc) | 6.332      | 0.402        |
-| R 3.3.2   | Intel MKL 2017U1 (icc) | 6.348      | 0.406        |
-| MRO 3.4.2 | Intel MKL              | 6.638      | 0.417        |
-| MRO 3.4.2 | Intel MKL + kpti       | 6.516      | 0.413        |
-| MRO 3.4.2 | Intel MKL + nopti      | 6.621      | 0.417        |
-
-
-### Laptop - EliteBook 840 G3 - i7-6500U - 2 cores (HT)
-
-| Version   | Options                         | Total time | Overall mean |
-| --------- | ------------------------------- | ---------- | ------------ |
-| R 3.3.2   | Intel MKL 2017U1 (icc)          | 4.628      | 0.281        |
-| R 3.3.2   | Intel MKL 2017U1 (gcc)          | 4.485      | 0.274        |
-| MRO 3.4.2 | Intel MKL + kpti                | 5.207      | 0.311        |
-| MRO 3.4.2 | Intel MKL + nopti               | 5.160      | 0.306        |
-| MRO 3.5.1 | Intel MKL                       | 4.776      | 0.280        |
-
-
-### Laptop - ProBook 430 G5 - i5-8250U - 4 cores (HT)
-
-| Version | Options  | Total time | Overall mean |
-| ------- | -------- | ---------- | ------------ |
-| R 3.6.1 | OpenBlas | 4.347      | 0.250        |
-
-
-### Desktop - i7-2600K - 4 cores (HT)
-
-| Version   | Options                                     | Total time | Overall mean |
-| --------- | ------------------------------------------- | ---------- | ------------ |
-| R 3.3.1   | Intel MKL 2016U3 (gcc)                      | 4.822      | 0.297        |
-| R 3.3.1   | Intel MKL 2017 (icc, no fp)                 | 4.706      | 0.281        |
-| R 3.3.1   | Intel MKL 2017 (icc, prec-div, prec-sqrt)   | 4.829      | 0.288        |
-| R 3.3.1   | Intel MKL 2017 (icc, fp precise source)     | 4.721      | 0.287        |
-| MRO 3.3.1 | RevoMath                                    | 4.974      | 0.294        |
-| R 3.3.2   | Intel MKL 2017 (icc, no parallel flags)     | 4.663      | 0.280        |
-| R 3.3.2   | Intel MKL 2017U1 (icc)                      | 4.834      | 0.298        |
-| R 3.3.2   | Intel MKL 2017U1 (gcc)                      | 4.222      | 0.265        |
-| R 3.4.3   | Intel MKL 2018 (gcc) + kpti                 | 4.174      | 0.257        |
-| R 3.4.3   | Intel MKL 2018 (gcc) + nopti                | 4.158      | 0.256        |
-| R 3.4.4   | Intel MKL 2018 (icc + tbb + no-openmp)      | 4.963      | 0.306        |
-| R 3.4.4   | Intel MKL 2018 (gcc + tbb)                  | 4.807      | 0.296        |
-| R 3.5.0   | Intel MKL 2018 (gcc + tbb)                  | 4.382      | 0.278        |
-| R 3.5.1   | Intel MKL 2018 (gcc + tbb)                  | 4.401      | 0.279        |
-| R 3.5.1   | Intel MKL 2018 (gcc + tbb + OC)             | 3.978      | 0.251        |
-
-
-### Desktop - Xeon 1270 v2 - 4 cores (HT)
-
-| Version   | Options                                     | Total time | Overall mean |
-| --------- | ------------------------------------------- | ---------- | ------------ |
-| R 3.5.1   | Intel MKL 2018 (gcc + tbb)                  | 4.288      | 0.268        |
-| R 3.5.1   | Intel MKL 2019 U1 (gcc)                     | 3.903      | 0.240        |
-| R 3.5.2   | Intel MKL 2019 U1 (gcc)                     | 3.890      | 0.239        |
-| MRO 3.5.2 | Intel MKL                                   | 4.241      | 0.263        |
-| R 3.5.3   | Intel MKL 2019 U1 (gcc)                     | 4.006      | 0.247        |
-| R 3.5.3   | Intel MKL 2019 U3 (gcc)                     | 3.954      | 0.244        |
-| R 3.6.0   | Intel MKL 2019 U3 (gcc)                     | 3.867      | 0.236        |
-
-
-### Desktop - Ryzen 3600 - 6 cores (HT)
-
-| Version | Options                                 | Total time | Overall mean |
-| ------- | --------------------------------------- | ---------- | ------------ |
-| R 3.6.1 | vanilla                                 | 21.999     | 0.548        |
-| R 3.6.1 | OpenBLAS                                | 3.012      | 0.167        |
-| R 3.6.2 | OpenBLAS                                | 2.885      | 0.161        |
-| R 3.6.2 | Intel MKL 2020.0                        | 2.673      | 0.151        |
-| R 3.6.2 | Intel MKL 2020.0 + MKL_DEBUG_CPU_TYPE=5 | 2.558      | 0.141        |
-| R 3.6.3 | Intel MKL 2020.1 + MKL_DEBUG_CPU_TYPE=5 | 2.637      | 0.145        |
 
 
 # Setting up high-performance R on Ubuntu/Debian
