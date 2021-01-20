@@ -95,6 +95,14 @@ cat R-benchmark-25.R | time R --slave --no-save
 cat bench.R | time R --slave --no-save
 ```
 
+CPULABenchmarks:
+
+```sh
+devtools::install_github("luisdamiano/CPULABenchmarks")
+library(CPULABenchmarks)
+run(100)
+```
+
 Test OpenMP:
 
 ``` {.sh}
