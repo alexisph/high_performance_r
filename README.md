@@ -86,6 +86,7 @@ _Benchmarks and instructions for high-performance computing in R_
 | R 4.0.4   | Intel MKL 2020.4                          | Ryzen 3600       | 6 (HT)  | 2.630      | 0.145        |
 | R 4.1.2   | Intel MKL 2020.4                          | Ryzen 3600       | 6 (HT)  | 2.640      | 0.146        |
 | R 4.3.0   | Intel MKL 2023.0                          | Ryzen 3600       | 6 (HT)  | 2.797      | 0.155        |
+| R 4.4.0   | Intel MKL 2023.2                          | Ryzen 3600       | 6 (HT)  | 2.830      | 0.156        |
 
 
 ## Methodology
